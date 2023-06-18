@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_Learning_System_2._0.Models;
+using System.Diagnostics;
 
 namespace E_Learning_System_2._0.Controllers
 {
@@ -25,8 +26,8 @@ namespace E_Learning_System_2._0.Controllers
             return View(await eLearnDbContext.ToListAsync());
         }
 
-        // GET: Students/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: Students/ShowSingleCourse/5
+        public async Task<IActionResult> GoForMachineLearning(string? id)
         {
             if (id == null || _context.Students == null)
             {
@@ -35,94 +36,35 @@ namespace E_Learning_System_2._0.Controllers
 
             var student = await _context.Students
                 .Include(s => s.UsernameNavigation)
-                .FirstOrDefaultAsync(m => m.RegistrationNumber == id);
+                .FirstOrDefaultAsync(m => m.Username == id);
+
             if (student == null)
             {
                 return NotFound();
             }
 
-            return View(student);
+            /*List<CourseHasStudent> elements = _context.CourseHasStudents
+                .Where(x => x.RegistrationNumber == student.RegistrationNumber && x.GradeCourseStudent >= 0)
+                .ToList();
+
+            List<Course> courses = _context.Courses.ToList();
+
+            var coursetitles = from x in elements
+                               join y in courses on x.IdCourse equals y.IdCourse
+                               where x.RegistrationNumber == student.RegistrationNumber
+                               select new Grade
+                               {
+                                   IdCourse = y.IdCourse,
+                                   CourseTitle = y.CourseTitle,
+                                   RegistrationNumber = student.RegistrationNumber
+                               };*/
+            return View("");
+
         }
 
-        // GET: Students/Create
-        public IActionResult Create()
-        {
-            ViewData["Username"] = new SelectList(_context.Users, "Username", "Username");
-            return View();
-        }
 
-        // POST: Students/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RegistrationNumber,Name,Surname,Username")] Student student)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(student);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["Username"] = new SelectList(_context.Users, "Username", "Username", student.Username);
-            return View(student);
-        }
-
-        // GET: Students/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Students == null)
-            {
-                return NotFound();
-            }
-
-            var student = await _context.Students.FindAsync(id);
-            if (student == null)
-            {
-                return NotFound();
-            }
-            ViewData["Username"] = new SelectList(_context.Users, "Username", "Username", student.Username);
-            return View(student);
-        }
-
-        // POST: Students/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RegistrationNumber,Name,Surname,Username")] Student student)
-        {
-            if (id != student.RegistrationNumber)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(student);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!StudentExists(student.RegistrationNumber))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["Username"] = new SelectList(_context.Users, "Username", "Username", student.Username);
-            return View(student);
-        }
-
-        // GET: Students/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: Students/ShowSingleCourse/5
+        public async Task<IActionResult> GoForProgramming(string? id)
         {
             if (id == null || _context.Students == null)
             {
@@ -131,37 +73,142 @@ namespace E_Learning_System_2._0.Controllers
 
             var student = await _context.Students
                 .Include(s => s.UsernameNavigation)
-                .FirstOrDefaultAsync(m => m.RegistrationNumber == id);
+                .FirstOrDefaultAsync(m => m.Username == id);
+
             if (student == null)
             {
                 return NotFound();
             }
 
-            return View(student);
+            /*List<CourseHasStudent> elements = _context.CourseHasStudents
+                .Where(x => x.RegistrationNumber == student.RegistrationNumber && x.GradeCourseStudent >= 0)
+                .ToList();
+
+            List<Course> courses = _context.Courses.ToList();
+
+            var coursetitles = from x in elements
+                               join y in courses on x.IdCourse equals y.IdCourse
+                               where x.RegistrationNumber == student.RegistrationNumber
+                               select new Grade
+                               {
+                                   IdCourse = y.IdCourse,
+                                   CourseTitle = y.CourseTitle,
+                                   RegistrationNumber = student.RegistrationNumber
+                               };*/
+            return View("");
+
         }
 
-        // POST: Students/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+
+        // GET: Students/ShowSingleCourse/5
+        public async Task<IActionResult> GoForTeaching(string? id)
         {
-            if (_context.Students == null)
+            if (id == null || _context.Students == null)
             {
-                return Problem("Entity set 'ELearnDbContext.Students'  is null.");
+                return NotFound();
             }
-            var student = await _context.Students.FindAsync(id);
-            if (student != null)
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
             {
-                _context.Students.Remove(student);
+                return NotFound();
             }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            /*List<CourseHasStudent> elements = _context.CourseHasStudents
+                .Where(x => x.RegistrationNumber == student.RegistrationNumber && x.GradeCourseStudent >= 0)
+                .ToList();
+
+            List<Course> courses = _context.Courses.ToList();
+
+            var coursetitles = from x in elements
+                               join y in courses on x.IdCourse equals y.IdCourse
+                               where x.RegistrationNumber == student.RegistrationNumber
+                               select new Grade
+                               {
+                                   IdCourse = y.IdCourse,
+                                   CourseTitle = y.CourseTitle,
+                                   RegistrationNumber = student.RegistrationNumber
+                               };*/
+            return View("");
+
         }
 
-        private bool StudentExists(int id)
+
+        // GET: Students/ShowSingleCourse/5
+        public async Task<IActionResult> GoForWebDevelop(string? id)
         {
-          return (_context.Students?.Any(e => e.RegistrationNumber == id)).GetValueOrDefault();
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            /*List<CourseHasStudent> elements = _context.CourseHasStudents
+                .Where(x => x.RegistrationNumber == student.RegistrationNumber && x.GradeCourseStudent >= 0)
+                .ToList();
+
+            List<Course> courses = _context.Courses.ToList();
+
+            var coursetitles = from x in elements
+                               join y in courses on x.IdCourse equals y.IdCourse
+                               where x.RegistrationNumber == student.RegistrationNumber
+                               select new Grade
+                               {
+                                   IdCourse = y.IdCourse,
+                                   CourseTitle = y.CourseTitle,
+                                   RegistrationNumber = student.RegistrationNumber
+                               };*/
+            return View("");
+
         }
+
+        // GET: Students/ShowSingleCourse/5
+        public async Task<IActionResult> Revision(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            /*List<CourseHasStudent> elements = _context.CourseHasStudents
+                .Where(x => x.RegistrationNumber == student.RegistrationNumber && x.GradeCourseStudent >= 0)
+                .ToList();
+
+            List<Course> courses = _context.Courses.ToList();
+
+            var coursetitles = from x in elements
+                               join y in courses on x.IdCourse equals y.IdCourse
+                               where x.RegistrationNumber == student.RegistrationNumber
+                               select new Grade
+                               {
+                                   IdCourse = y.IdCourse,
+                                   CourseTitle = y.CourseTitle,
+                                   RegistrationNumber = student.RegistrationNumber
+                               };*/
+            return View("");
+
+        }
+
+
     }
 }
