@@ -4,11 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<h1>Student index</h1>
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -18,30 +15,27 @@
             <th>
                 @Html.DisplayNameFor(model => model.Surname)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UsernameNavigation)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @TempData["name"]
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Surname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UsernameNavigation.Username)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.RegistrationNumber">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RegistrationNumber">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RegistrationNumber">Delete</a>
+                @TempData["surname"]
             </td>
         </tr>
-}
     </tbody>
 </table>
+<br />
+<div class="myButtons">
+    <a class="buttonIndex" asp-action="ShowAllGrades" asp-route-id="@TempData["username"]"> Show all grades </a> |
+
+    <a class="buttonIndex" asp-action="ShowSingleCourse" asp-route-id="@TempData["username"]"> Show grade for a specific course </a> |
+
+    <a class="buttonIndex" asp-action="ShowSingleSemester" asp-route-id="@TempData["username"]"> Show grades for a specific semester </a>
+</div>
+
+

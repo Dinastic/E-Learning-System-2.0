@@ -119,7 +119,7 @@ public partial class ELearnDbContext : DbContext
         {
             entity.HasKey(e => e.Username);
 
-            entity.ToTable("users");
+            /*entity.ToTable("users");*/
 
             entity.Property(e => e.Username)
                 .HasMaxLength(25)
