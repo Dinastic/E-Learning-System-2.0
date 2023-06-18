@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MVC2023_v3._0.Models.Grade>
+﻿@model IEnumerable<E_Learning_System_2._0.Models.Student>
 
 @{
     ViewData["Title"] = "ShowAllGrades";
@@ -21,16 +21,6 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GradeCourseStudent)
-            </td>
-            </tr>
-        }
+        
     </tbody>
 </table>
