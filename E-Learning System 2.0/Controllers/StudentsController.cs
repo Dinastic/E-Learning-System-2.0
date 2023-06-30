@@ -41,29 +41,12 @@ namespace E_Learning_System_2._0.Controllers
             if (student == null)
             {
                 return NotFound();
-            }
-
-            /*List<CourseHasStudent> elements = _context.CourseHasStudents
-                .Where(x => x.RegistrationNumber == student.RegistrationNumber && x.GradeCourseStudent >= 0)
-                .ToList();
-
-            List<Course> courses = _context.Courses.ToList();
-
-            var coursetitles = from x in elements
-                               join y in courses on x.IdCourse equals y.IdCourse
-                               where x.RegistrationNumber == student.RegistrationNumber
-                               select new Grade
-                               {
-                                   IdCourse = y.IdCourse,
-                                   CourseTitle = y.CourseTitle,
-                                   RegistrationNumber = student.RegistrationNumber
-                               };*/
-            return View("");
-
+            }            
+            return View(student);
         }
 
 
-        // GET: Students/ShowSingleCourse/5
+        // GET: Students/GoForProgramming
         public async Task<IActionResult> GoForProgramming(string? id)
         {
             if (id == null || _context.Students == null)
@@ -80,59 +63,7 @@ namespace E_Learning_System_2._0.Controllers
                 return NotFound();
             }
 
-            /*List<CourseHasStudent> elements = _context.CourseHasStudents
-                .Where(x => x.RegistrationNumber == student.RegistrationNumber && x.GradeCourseStudent >= 0)
-                .ToList();
-
-            List<Course> courses = _context.Courses.ToList();
-
-            var coursetitles = from x in elements
-                               join y in courses on x.IdCourse equals y.IdCourse
-                               where x.RegistrationNumber == student.RegistrationNumber
-                               select new Grade
-                               {
-                                   IdCourse = y.IdCourse,
-                                   CourseTitle = y.CourseTitle,
-                                   RegistrationNumber = student.RegistrationNumber
-                               };*/
-            return View("");
-
-        }
-
-
-        // GET: Students/ShowSingleCourse/5
-        public async Task<IActionResult> GoForTeaching(string? id)
-        {
-            if (id == null || _context.Students == null)
-            {
-                return NotFound();
-            }
-
-            var student = await _context.Students
-                .Include(s => s.UsernameNavigation)
-                .FirstOrDefaultAsync(m => m.Username == id);
-
-            if (student == null)
-            {
-                return NotFound();
-            }
-
-            /*List<CourseHasStudent> elements = _context.CourseHasStudents
-                .Where(x => x.RegistrationNumber == student.RegistrationNumber && x.GradeCourseStudent >= 0)
-                .ToList();
-
-            List<Course> courses = _context.Courses.ToList();
-
-            var coursetitles = from x in elements
-                               join y in courses on x.IdCourse equals y.IdCourse
-                               where x.RegistrationNumber == student.RegistrationNumber
-                               select new Grade
-                               {
-                                   IdCourse = y.IdCourse,
-                                   CourseTitle = y.CourseTitle,
-                                   RegistrationNumber = student.RegistrationNumber
-                               };*/
-            return View("");
+        return View(student);
 
         }
 
@@ -154,22 +85,7 @@ namespace E_Learning_System_2._0.Controllers
                 return NotFound();
             }
 
-            /*List<CourseHasStudent> elements = _context.CourseHasStudents
-                .Where(x => x.RegistrationNumber == student.RegistrationNumber && x.GradeCourseStudent >= 0)
-                .ToList();
-
-            List<Course> courses = _context.Courses.ToList();
-
-            var coursetitles = from x in elements
-                               join y in courses on x.IdCourse equals y.IdCourse
-                               where x.RegistrationNumber == student.RegistrationNumber
-                               select new Grade
-                               {
-                                   IdCourse = y.IdCourse,
-                                   CourseTitle = y.CourseTitle,
-                                   RegistrationNumber = student.RegistrationNumber
-                               };*/
-            return View("");
+            return View(student);
 
         }
 
@@ -189,26 +105,290 @@ namespace E_Learning_System_2._0.Controllers
             {
                 return NotFound();
             }
-
-            /*List<CourseHasStudent> elements = _context.CourseHasStudents
-                .Where(x => x.RegistrationNumber == student.RegistrationNumber && x.GradeCourseStudent >= 0)
-                .ToList();
-
-            List<Course> courses = _context.Courses.ToList();
-
-            var coursetitles = from x in elements
-                               join y in courses on x.IdCourse equals y.IdCourse
-                               where x.RegistrationNumber == student.RegistrationNumber
-                               select new Grade
-                               {
-                                   IdCourse = y.IdCourse,
-                                   CourseTitle = y.CourseTitle,
-                                   RegistrationNumber = student.RegistrationNumber
-                               };*/
-            return View("");
+                   
+        return View(student);
 
         }
 
+        public async Task<IActionResult> HumanComputer(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+
+
+        }
+        public async Task<IActionResult> HumanComputerTest(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+
+
+        }
+        public async Task<IActionResult> Software(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+
+
+        }
+        public async Task<IActionResult> SoftwareTest(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+
+
+        }
+
+        public async Task<IActionResult> Database(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+
+
+        }
+
+        public async Task<IActionResult> DatabaseTest(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+
+
+        }
+
+        public async Task<IActionResult> FrontEnd(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+        }
+        public async Task<IActionResult> FrontEndTest(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+        }
+        public async Task<IActionResult> BackEnd(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+
+
+        }
+
+        public async Task<IActionResult> BackEndTest(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+
+
+        }
+        public async Task<IActionResult> AI(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+        }
+
+        public async Task<IActionResult> AITest(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+
+
+        }
+        public async Task<IActionResult> Algorithm(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+
+
+        }
+
+        public async Task<IActionResult> AlgorithmTest(string? id)
+        {
+            if (id == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .Include(s => s.UsernameNavigation)
+                .FirstOrDefaultAsync(m => m.Username == id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+
+        }
 
     }
 }

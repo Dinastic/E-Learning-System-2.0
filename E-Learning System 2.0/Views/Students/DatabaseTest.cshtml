@@ -1,0 +1,69 @@
+﻿@model E_Learning_System_2._0.Models.Student
+<form id="quiz-form">
+<div class="quiz-container">
+    <h1>Τεστ για να δουμε τι ξερεις/εμαθες για το λογισμικό</h1>
+    <hr>
+ 
+        <div class="d-flex">
+            <div class="question">
+                <p>1. Γνωριζετε την προηγμενη αρχιτεκτονικη των βασεων δεδομένων?</p>
+                <div class="answers">
+                    <label>
+                        <input type="radio" name="q1" value="a">
+                        Ναι
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="b">
+                        Οχι
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. Σας αρέσει να οργανώνεται βασεις δεδομένων?</p>
+                <div class="answers">
+                    <label>
+                        <input type="radio" name="q2" value="a">
+                        ναι
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="b">
+                        οχι
+                    </label>  
+                </div>
+                </div>
+
+                <div class="question">
+                <p>3. Γνωρίζετ sql?</p>
+                    <div class="answers">
+                        <label>
+                            <input type="radio" name="q3" value="a">
+                            ναι
+                        </label>
+                        <label>
+                            <input type="radio" name="q3" value="b">
+                            οχι
+                        </label>
+                    </div>
+                    </div>
+
+            <div class="question">
+                <p>4. ξερετε γλώσσες όπως python kai java?</p>
+                <div class="answers">
+                    <label>
+                        <input type="radio" name="q4" value="a">
+                       καλά
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="b">
+                        Οχι καλά
+                    </label>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <div class="result" id="result"></div>
+</div>

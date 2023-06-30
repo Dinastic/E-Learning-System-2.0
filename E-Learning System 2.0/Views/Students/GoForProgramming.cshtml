@@ -1,26 +1,19 @@
-﻿@model IEnumerable<E_Learning_System_2._0.Models.Student>
+﻿@model E_Learning_System_2._0.Models.Student
 
 @{
     ViewData["Title"] = "ShowAllGrades";
 }
 
-<h1>Students</h1>
+<h1>ΠΡΟΓΡΑΜΜΑΤΙΣΤΗΣ ΛΟΓΙΣΜΙΚΟΥ</h1>
 <br />
-<h3>All grades for all courses</h3>
+<h3>Ο προγραμματιστής λογισμικού είναι υπέυθυνος για την δημιουργία λογισμικών που θα χρησιμοποιεί ο χρήστης</h3>
+<h4>Βασικά μαθήματα/γνώσεις για να γίνει κάποιος προγραμματιστής λογισμικού</h4>
 <br />
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Course
-            </th>
-            <th>
-                Score
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        
-    </tbody>
-</table>
+<div class="myButtons">
+    <a class="buttonIndex" asp-action="HumanComputer" asp-route-id="@Model.Username"> Αλληλεπίδραση Ανθρώπου με Υπολογιστή</a> |
+
+    <a class="buttonIndex" asp-action="Software" asp-route-id="@Model.Username"> Τεχνολογία Λογισμικού</a> |
+
+    <a class="buttonIndex" asp-action="Database" asp-route-id="@Model.Username"> Βάσεις</a>
+</div>

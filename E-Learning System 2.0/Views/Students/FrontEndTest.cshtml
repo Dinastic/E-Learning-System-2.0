@@ -1,0 +1,71 @@
+﻿@model E_Learning_System_2._0.Models.Student
+
+<form id="quiz-form">
+<div class="quiz-container">
+    <h1>Τεστ για να δουμε τι ξερεις/εμαθες για την αλληλεπιδραση ανθρωπου υπολγιστή</h1>
+    <hr>
+    
+        <div class="d-flex">
+            <div class="question">
+                <p>1. Ποια απο τις παρακάτω γλώσσες χρησιμοποιήται για frontend</p>
+                <div class="answers">
+                    <label>
+                        <input type="radio" name="q1" value="a">
+                        Python
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="b">
+                        Javascript
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. ΕΪναι η html βασική για το frontend?</p>
+                <div class="answers">
+                    <label>
+                        <input type="radio" name="q2" value="a">
+                        ναι
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="b">
+                        οχι
+                    </label>
+                   
+                </div>
+                </div>
+                <div class="question">
+                    <p>3. Ξέρεις να χρησιμοποιείς αρχεία SEO</p>
+                    <div class="answers">
+                        <label>
+                            <input type="radio" name="q3" value="a">
+                            ναι
+                        </label>
+                        <label>
+                            <input type="radio" name="q3" value="b">
+                            οχι
+                        </label>
+
+                    </div>
+
+                    </div>
+            <div class="question">
+                <p>4. πόσο καλά γνωρίζεις html kai css</p>
+                <div class="answers">
+                    <label>
+                        <input type="radio" name="q4" value="a">
+                       καλά
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="b">
+                        Οχι καλά
+                    </label>
+                </div>
+            </div>
+            </div>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <div class="result" id="result"></div>
+</div>
